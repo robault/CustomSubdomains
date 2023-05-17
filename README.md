@@ -72,3 +72,4 @@ bundle exec rake db:migrate
 
 I then added the simple account/subdomain before action in application controller and setup the routes.
 
+#### Commit: 'Setup subdomain before_action', [414f75f](https://github.com/robault/CustomSubdomains/commit/414f75f54786135afb4e02e0e948193b5b9734a7)

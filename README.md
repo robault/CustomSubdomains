@@ -30,3 +30,40 @@ bundle exec rake db:drop db:create db:migrate db:seed
 
 #### Commit: 'Initial project setup', [d4722c4](https://github.com/jlord/sheetsee.js/commit/d4722c4332ee3e2cbdd05dc59f5dc75292c863f3)
 
+---
+
+Added devise gem in the gemfile then ran bundle:
+
+```bash
+bundle
+```
+
+Then ran devise install:
+
+```bash
+bundle exec rails generate devise:install
+```
+
+Then created the devise user:
+
+```bash
+bundle exec rails generate devise User name
+```
+
+And created an "account" model as the subdomain holder:
+
+```bash
+bundle exec rails generate model Account subdomain user_id:integer
+```
+
+Lastly, I scaffolded the posts with an account_id because the Account will be loaded on each request based on the subdomain:
+
+```bash
+bundle exec rails generate scaffold Post title body:text account_id:integer
+```
+
+Then ran the migrations:
+
+```bash
+bundle exec rake db:migrate
+```

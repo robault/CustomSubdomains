@@ -73,3 +73,5 @@ bundle exec rake db:migrate
 I then added the simple account/subdomain before action in application controller and setup the routes.
 
 #### Commit: 'Setup subdomain before_action', [414f75f](https://github.com/robault/CustomSubdomains/commit/414f75f54786135afb4e02e0e948193b5b9734a7)
+
+Part of why I created such a small previous commit was to isolate the handler code for easy reference. A secondary benefit was at this point in the video, the local domain 'lvh.me' was used. In Rails 7 (6.1?), you have to specify the hosts. So the following commit calls out a modern Rails way to handle the (sub)domain.

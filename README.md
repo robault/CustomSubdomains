@@ -141,3 +141,24 @@ Sounds like a good time to commit.
 #### Commit: 'Isolating posts by account/subdomain', [f88579c](https://github.com/robault/CustomSubdomains/commit/f88579c1b063c75b704397d185d86310bb9fcfc6)
 
 ---
+
+The last change in the video is to add a require_account! before action in the posts controller.
+
+This prevents someone from getting to the posts controller without an account.
+
+If you try to navigate to 'lvh.me:3000' after that, you will not get a page because the root goes to posts#index in the routes file.
+
+I'm adding this from the comments in the video:
+
+```text
+Chris Collinsworth on Jan 30, 2016
+
+Is there anything special that needs to be done to continue to use devise helpers like current_user or user_signed_in? inside of a multitenant app?
+
+    Reply: Chris Oliver on Jan 30, 2016
+
+    Nope, that should still work out of the box. Server side will just continue to set cookies, but will only match users available for the current tenant.
+
+ Reply
+```
+

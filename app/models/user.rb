@@ -12,6 +12,7 @@ class User < ApplicationRecord
   private
 
   def set_account
+    # see 'build_association', http://apidock.com/rails/ActiveRecord/Associations/ClassMethods/has_one
     build_account unless account.present?
   end
 end

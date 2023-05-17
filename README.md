@@ -121,3 +121,19 @@ From this point I was able to create an account and user, and login using 'examp
 #### Commit: 'Devise sign up accepting account', [45efe17](https://github.com/robault/CustomSubdomains/commit/45efe1766eccfbe2044c46cf710857ad2e94d54c)
 
 ---
+
+I then added active record relations to the post and account models linking them together.
+
+Then edits the posts controller to pull from @account.posts instead of Post now that @account ought to be set by the application controller.
+
+I also removed the account_id from the posts _form partial. This illustrates that the account is being set automatically.
+
+Following the video, I opened a private browser window and created a new user and new account called "test".
+
+This is shown in the video using "example.lvh.me:3000" and "test.lvh.me:3000".
+
+Just "lvh.me:3000" will not work because the subdomain is required in the posts controller now.
+
+The host Chris Oliver makes the statement that this subdomain project can go many different directions at this point.
+
+Sounds like a good time to commit.

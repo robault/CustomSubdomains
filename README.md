@@ -20,7 +20,7 @@ I first created the project in Rubymine as Rails app using:
 - additional option: 
   - --css bootstrap
 
-After project setup in Rubymine, add .idea to .gitignore file
+After project setup in Rubymine, add .idea to .gitignore file.
 
 Then ran:
 
@@ -70,10 +70,50 @@ bundle exec rake db:migrate
 
 #### Commit: 'Added devise, used generators to create objects needed for the rest of the application', [2b6ce3d](https://github.com/robault/CustomSubdomains/commit/2b6ce3d57179d2c85c45caa0b8e43d580530fe67)
 
+---
+
 I then added the simple account/subdomain before action in application controller and setup the routes.
 
+---
+
 #### Commit: 'Setup subdomain before_action', [414f75f](https://github.com/robault/CustomSubdomains/commit/414f75f54786135afb4e02e0e948193b5b9734a7)
+
+---
 
 Part of why I created such a small previous commit was to isolate the handler code for easy reference. A secondary benefit was at this point in the video, the local domain 'lvh.me' was used. In Rails 7 (6.1?), you have to specify the hosts. So the following commit calls out a modern Rails way to handle the (sub)domain.
 
 #### Commit: 'Rails 7 host config', [6eb6794](https://github.com/robault/CustomSubdomains/commit/6eb6794a40c130d014d301206a96bf797a5ea034)
+
+Next I generated the devise views to add account to sign up:
+
+```bash
+bundle exec rails generate devise:views
+```
+
+Then I added account to the sign up form.
+
+Then added the before action in application controller to allow devise to accept the nested account attribute 'subdomain'.
+
+The models were modified to setup active record relations, as well as create an account when saving a new user. 
+
+Devise has changed since the video was made, so I had to modify the before action in the application controller
+
+From the video:
+
+```ruby
+def configure_permitted_parameters
+  devise_parameter_sanitizer.for(:sign_up) { |u|
+    u.permit(:email, :password, :password_confirmation, account_attributes: [:subdomain])
+  }
+end
+```
+
+...and the new way of doing it (no such thing as 'devise_parameter_sanitizer.for' anymore):
+
+```ruby
+def configure_permitted_parameters
+  devise_parameter_sanitizer.permit(:sign_up, keys: [:account_attributes => [:subdomain]])
+end
+```
+
+From this point I was able to create an account and user, and login using 'example.lvh.me:3000'.

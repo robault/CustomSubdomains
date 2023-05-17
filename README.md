@@ -28,7 +28,7 @@ Then ran:
 bundle exec rake db:drop db:create db:migrate db:seed
 ```
 
-#### Commit: 'Initial project setup', [d4722c4](https://github.com/jlord/sheetsee.js/commit/d4722c4332ee3e2cbdd05dc59f5dc75292c863f3)
+#### Commit: 'Initial project setup', [d4722c4](https://github.com/robault/CustomSubdomains/commit/d4722c4332ee3e2cbdd05dc59f5dc75292c863f3)
 
 ---
 
@@ -67,3 +67,5 @@ Then ran the migrations:
 ```bash
 bundle exec rake db:migrate
 ```
+
+#### Commit: 'Added devise, used generators to create objects needed for the rest of the application', [2b6ce3d](https://github.com/robault/CustomSubdomains/commit/2b6ce3d57179d2c85c45caa0b8e43d580530fe67)

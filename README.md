@@ -69,3 +69,6 @@ bundle exec rake db:migrate
 ```
 
 #### Commit: 'Added devise, used generators to create objects needed for the rest of the application', [2b6ce3d](https://github.com/robault/CustomSubdomains/commit/2b6ce3d57179d2c85c45caa0b8e43d580530fe67)
+
+I then added the simple account/subdomain before action in application controller and setup the routes.
+
